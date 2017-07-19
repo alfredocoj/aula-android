@@ -57,3 +57,4 @@ freeline_project_description.json
 *.xml
 .idea/misc.xml
 app/src/main/AndroidManifest.xml
+.idea
