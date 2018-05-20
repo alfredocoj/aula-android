@@ -18,7 +18,7 @@ import br.uema.agendadecontatos.modelo.Aluno;
 public class AlunoDAO extends SQLiteOpenHelper {
 
     public AlunoDAO(Context context) {
-        super(context, "agenda", null, 1);
+        super(context, "agenda", null, 2);
     }
 
     @Override
