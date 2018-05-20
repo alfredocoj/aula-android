@@ -8,6 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.util.List;
+
+import br.uema.agendadecontatos.dao.AlunoDAO;
+import br.uema.agendadecontatos.modelo.Aluno;
+
 public class ListaAlunosActivity extends AppCompatActivity {
 
     @Override
@@ -15,9 +20,14 @@ public class ListaAlunosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_alunos); // seta e guarda as referencias
 
-        String[] alunos = {"Karol M", "Jhordan", "Jessica", "Alfredo", "Ronaldo", "Jeferson", "Rogério"};
+        AlunoDAO alunoDAO = new AlunoDAO(this);
+
+        List<Aluno> alunos = alunoDAO.buscaAluno();
+
+        //String[] alunos = {"Jhordan", "Jessica", "Alfredo", "Ronaldo", "Jeferson", "Rogério"};
         ListView listaAluno = (ListView) findViewById(R.id.lista_alunos); // obtemos a ferencia de  algum componente criado na view baseado no atributo ID
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, alunos); // adapta objetos para seres mostrados na view
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, alunos); // adapta objetos para seres mostrados na view
+        ArrayAdapter<Aluno> adapter = new ArrayAdapter<Aluno>(this, android.R.layout.simple_list_item_1, alunos); // adapta objetos para seres mostrados na view
 
         listaAluno.setAdapter(adapter); // seta o adapter para view referenciada
 
